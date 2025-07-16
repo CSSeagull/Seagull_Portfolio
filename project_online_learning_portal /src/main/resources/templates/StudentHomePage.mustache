@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .ui.menu .item img.logo {
+            margin-right: 1.5em;
+        }
+
+        .ui.footer.segment {
+            margin: 5em 0em 0em;
+            padding: 5em 0em;
+        }
+
+        .dashboard-card {
+            width: 500px;
+            padding: 2em;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .course-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .course-section {
+            margin-top: 20px;
+        }
+
+        .course {
+            background-color: #f9fafb;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 5px;
+        }
+
+        .course p {
+            margin: 0;
+        }
+
+        .ui.cards > .card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="ui fixed inverted menu" style="height: 8%; font-size: 16px; background-color: #2F365F">
+    <div class="ui container">
+        <a href="/student/{{student.name}}" class="header item">
+            {{student.name}}'s Dashboard
+        </a>
+        <a href="/enroll/{{student.studentId}}" class="header item">Enroll in Courses</a>
+        <a href="/student/courses/{{student.studentId}}" class="header item">My Enrolled Courses</a>
+        <div class="right menu">
+            <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="ui raised very padded text container segment dashboard-card" style="max-width: 1200px; margin-top: 100px">
+    <h2 class="ui header" style="color: #2F365F; font-size: 30px; text-align: center;">
+        Welcome, {{student.name}}!
+    </h2>
+
+    <div style="font-size: 18px; text-align: center; margin-top: 20px;">
+        <p>
+            <i class="envelope icon" style="margin-right: 5px;"></i>
+            <strong>Email:</strong> {{student.email}}
+        </p>
+        <p>
+            <strong>UID:</strong> {{student.studentId}}
+        </p>
+    </div>
+</div>
+
+<div class="ui centered stackable cards" style="margin-top: 30px;">
+    <h3 class="ui header" style="text-align: center; width: 100%; margin-bottom: 20px;">Your Enrolled Courses</h3>
+
+    {{#enrollments}} <!-- To get the enrolled courses from enrollments table -->
+        <div class="card" style="width: 350px; margin-bottom: 20px;">
+            <div class="content" style="text-align: center;">
+                <div class="header" style="font-size: 22px;">{{course.name}}</div>
+                <div class="meta" style="margin-top: 5px;">Course Code: {{course.courseId}}</div>
+            </div>
+            <div class="extra content" style = "display: flex;">
+                <a href="/materials/{{course.courseId}}" class="ui blue button" style="flex:1;">
+                    View Materials
+                </a>
+                <a class="ui red button" style="flex: 1;" href="/{{student.name}}/{{course.courseId}}/quizzes">
+                    Quizzes
+                </a>
+            </div>
+        </div>
+    {{/enrollments}}
+</div>
+
+</body>
+</html>

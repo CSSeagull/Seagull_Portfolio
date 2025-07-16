@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Staff: Course Materials for {{courseId}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .ui.menu .item img.logo {
+            margin-right: 1.5em;
+        }
+        a{
+            font-size: 18px;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="ui fixed inverted menu" style="height: 8%; font-size: 16px; background-color: #2F365F">
+        <a href="" class="item" style="padding-left: 10%">HomePage</a>
+        <div class="ui simple dropdown item">
+            Dropdown <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="#">Link Item</a>
+                <a class="item" href="#">Link Item</a>
+                <div class="divider"></div>
+                <div class="header">Header Item</div>
+                <div class="item">
+                    <i class="dropdown icon"></i>
+                    Sub Menu
+                    <div class="menu">
+                        <a class="item" href="#">Link Item</a>
+                        <a class="item" href="#">Link Item</a>
+                    </div>
+                </div>
+                <a class="item" href="#">Link Item</a>
+            </div>
+        </div>
+    <div class="right menu">
+        <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px">Logout</a>
+    </div>
+    </div>
+</div>
+<div class="ui container" style="margin-top: 5%">
+    <h2>Manage Course Materials for Course Code: {{courseId}}</h2>
+
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+
+    <div class="ui divided list">
+        {{#material}}
+            <div class="item">
+                <div class="content">
+                    <a href="/view/{{courseId}}/{{title}}">{{title}}</a>
+
+                    <form action="/edit/{{courseId}}/{{title}}" method="get" style="display:inline">
+                        <button class="ui button blue">Edit Title</button>
+                    </form>
+
+                    <button class="ui button red" onclick="deleteMaterial('{{courseId}}', '{{title}}')">Delete</button>
+                </div>
+                <br>
+            </div>
+        {{/material}}
+
+        {{^material}}
+            <p>No course material available for this course.</p>
+        {{/material}}
+    </div>
+    <a class="ui button blue" href="javascript:history.back()">← Back</a>
+</div>
+
+<script>
+    function deleteMaterial(courseId, title) {
+        const confirmed = confirm('Are you sure you want to delete this file?');
+        if (confirmed) {
+            fetch(`/staff/delete/${courseId}/${title}`, {
+                method: 'DELETE'}).then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    alert('Failed to delete material');
+                }
+            }).catch(error => {
+                console.error('Error deleting material:', error);
+            });
+        }
+    }
+</script>
+
+</body>
+</html>

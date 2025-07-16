@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="ui fixed inverted menu navbar">
+  <div class="ui container">
+    <div class="ui simple dropdown item">
+      Dropdown <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" href="/aboutus">About Us</a>
+        <a class="item" href="Calendar.html">Calendar</a>
+        <a class="item" href="TeamMembers.html">Team Members</a>
+        <div class="divider"></div>
+        <div class="header">More</div>
+        <div class="item">
+          <i class="dropdown icon"></i>
+          Features
+          <div class="menu">
+            <a class="item" href="PlannedFeatures.html">Planned Features</a>
+            <a class="item" href="CompletedFeatures.html">Completed Features</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right menu">
+      <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px; font-size: 15px;">
+        Logout
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="main-content" style="text-align: center; padding-top: 50px;">
+  <div class="box" style="display: inline-block; padding: 20px;">
+    <input type="text" id="inline_calendar" class="ui input" />
+  </div>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="goBack()" class="ui blue button" style="font-size: 16px;">
+    Back to Home
+  </button>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><!-- Flatpickr Script for the calendar -->
+<script>
+  $('.ui.dropdown').dropdown();
+  flatpickr("#inline_calendar", {  // Initialize the Flatpickr calendar
+    inline: true,
+    dateFormat: "Y-m-d", // Customize the date format
+  });
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+</body>
+</html>

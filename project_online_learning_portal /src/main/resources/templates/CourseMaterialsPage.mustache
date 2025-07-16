@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Course Materials for Course Code: {{courseId}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        a {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="ui fixed inverted menu" style="height: 8%; font-size: 16px; background-color: #2F365F">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px">Logout</a>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="ui container">
+    <h2>Your Course Materials for Course Code: {{courseId}}</h2>
+
+    <div class="ui divided list">
+        {{#material}}
+            <div class="item">
+                <div class="content">
+                    <a href="/view/{{courseId}}/{{title}}">{{title}}</a>
+                </div>
+            </div>
+        {{/material}}
+
+        {{^material}}
+            <p>No course material available.</p>
+        {{/material}}
+    </div>
+    <br>
+    <br>
+    <a class="ui teal button" href="javascript:history.back()" style="margin-top: 8px; margin-bottom: 8px">← Back</a>
+</div>
+</body>
+</html>

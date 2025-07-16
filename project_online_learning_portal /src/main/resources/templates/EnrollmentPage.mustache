@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Enroll in Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .dashboard-card {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .ui.cards > .card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+<br>
+<br>
+<br>
+
+<div class="ui fixed inverted menu" style="height: 8%; font-size: 16px; background-color: #2F365F">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px;">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="ui raised very padded text container segment dashboard-card" style="max-width: 1200px;">
+    <h2 class="ui header" style="color: #2F365F; font-size: 30px;">
+        Available Courses
+    </h2>
+
+    <div class="ui centered stackable cards" style="margin-top: 30px;">
+        {{#courses}} <!-- List all the courses from the courses entity  -->
+            <div class="card" style="width: 350px;">
+                <div class="content" style="text-align: center;">
+                    <div class="header" style="font-size: 22px;">{{name}}</div>
+                    <div class="meta" style="margin-top: 5px;">Course Code: {{courseId}}</div>
+                </div>
+                <div class="extra content">
+                    <form method="post" action="/enroll/{{studentId}}/{{courseId}}">
+                        <button class="ui green button" style="width: 100%;" type="submit">
+                            Enroll
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {{/courses}}
+    </div>
+    <br>
+    <br>
+    <a class="ui green button" href="javascript:history.back()">← Back</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+</head>
+<body>
+
+<div class="ui container" style="margin-top: 50px;">
+    <h2 class="ui header" style="text-align: center; padding-top: 5%">Upload PDF File</h2>
+
+
+
+    <form class="ui form" method="post" th:action="@{/upload/{courseId}(courseId=${courseId})}" enctype="multipart/form-data">
+        <div class="field">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+
+        <div class="field">
+            <label for="file">File</label>
+
+
+            <input type="file" name="file" id="file" accept="application/pdf" required style="display: none;">
+
+
+            <div class="ui placeholder segment" id="file-placeholder">
+                <div class="ui icon header">
+                    <i class="pdf file outline icon"></i>
+                    No PDF selected. Click below to add.
+                </div>
+                <div class="ui primary button" id="upload-btn">Add Document</div>
+            </div>
+
+            <div id="file-name" class="ui small message" style="display: none; font-size: "></div>
+        </div>
+
+        <button class="ui primary button" type="submit">Upload</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a class="ui teal button" href="javascript:history.back()">← Back</a>
+    </form>
+</div>
+<!--still need to add alert, so i can notify user if file uploaded or not=(-->
+
+<script>
+    $(document).ready(function () {
+        $('#upload-btn').click(function () {
+            $('#file').click();
+        });
+
+        $('#file').change(function () { //to see the file name of the uploaded file
+            const fileName = $(this)[0].files[0]?.name || "No file selected";
+            if (fileName !== "No file selected") {
+                $('#file-name').text("Selected file: " + fileName).show();
+            } else {
+                $('#file-name').hide();
+            }
+        });
+
+
+
+
+    });
+</script>
+</body>
+</html>

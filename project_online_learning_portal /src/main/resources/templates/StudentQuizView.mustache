@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .quiz-container {
+            margin-top: 120px;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 30px;
+        }
+
+        .question h3 {
+            font-size: 24px;
+            color: #2F365F;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .grouped.fields {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .grouped.fields .field {
+            margin-bottom: 10px;
+        }
+
+        .grouped.fields .field label {
+            font-size: 18px;
+        }
+
+        .submit-button {
+            margin: 40px auto 0;
+            width: 200px;
+            display: block;
+        }
+
+        .ui.menu {
+            background-color: #2F365F;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ui fixed inverted menu" style="height: 8%; font-size: 16px;background-color: #2F365F">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px;">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="ui container quiz-container">
+    <h2 class="ui center aligned header" style="color: #2F365F; font-size: 36px;">Quiz: {{quiz}}</h2>
+
+    <div class="ui  items" style="margin-top: 50px; margin-left: 470px">
+        {{#questions}}
+            <div class="item question">
+                <div class="ui raised very padded segment">
+                    <h3 class="ui center aligned header">{{questionBody}}</h3>
+                    <div class="grouped fields">
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" id="{{questionId}}ans1" name="{{questionId}}" value="answer1">
+                                <label for="{{questionId}}ans1">{{answer1}}</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" id="{{questionId}}ans2" name="{{questionId}}" value="answer2">
+                                <label for="{{questionId}}ans2">{{answer2}}</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" id="{{questionId}}ans3" name="{{questionId}}" value="answer3">
+                                <label for="{{questionId}}ans3">{{answer3}}</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" id="{{questionId}}ans4" name="{{questionId}}" value="answer4">
+                                <label for="{{questionId}}ans4">{{answer4}}</label>
+                            </div>
+                        </div>
+                        <input type="hidden" class="correct-answer" value="{{correctAnswer}}" id="{{questionId}}corr">
+                    </div>
+                </div>
+            </div>
+        {{/questions}}
+    </div>
+
+    <button class="ui blue medium button submit-button" onclick="submitQuiz()">Submit Quiz</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script>
+    $('.ui.radio.checkbox').checkbox();
+
+    function submitQuiz() {
+        let correctCount = 0;
+        let questionCount = 0;
+        $('.question').each(function() {
+            const questionBlock = $(this);
+            const correctAnswer = questionBlock.find('.correct-answer').val();
+            const selectedAnswer = questionBlock.find('input[type="radio"]:checked').val();
+            if (selectedAnswer) {
+                if (selectedAnswer === correctAnswer) {
+                    correctCount++;
+                }
+            }
+            questionCount++;
+        });
+        let score = (correctCount * 100) / questionCount;
+        console.log('Score (%):', score);
+
+        $.ajax({
+            url: '/{{student.name}}/{{courseId}}/quiz/{{quizName}}/submit',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ correctAnswers: score }),
+            success: function(response) {
+                console.log('Result submitted:', response);
+                window.location.href = '/{{student.name}}/{{courseId}}/quizzes';
+            },
+            error: function(xhr, status, error) {
+                console.error('Error submitting:', error);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

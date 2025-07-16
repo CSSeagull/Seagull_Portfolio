@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{quizName}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+</head>
+<body>
+<div class="ui fixed inverted menu" style="height: 8%; font-size: 16px; background-color: #2F365F;">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px;">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="ui container" style="margin-top: 80px;">
+    <h1 class="ui header">{{quizName}}</h1>
+
+    <div class="ui divided items">
+        {{#questions}}
+            <div class="item">
+                <div class="content">
+                    <p>{{questionBody}}</p>
+
+                    <div class="extra">
+                        <span class="ui label">{{answer1}}</span>
+                        <span class="ui label">{{answer2}}</span>
+                        <span class="ui label">{{answer3}}</span>
+                        <span class="ui label">{{answer4}}</span>
+                        <button class="ui red button" onclick="deleteQuestion({{questionId}})">Delete</button>
+                    </div>
+                </div>
+                <hr/>
+            </div>
+        {{/questions}}
+    </div>
+
+    <button class="ui blue button" onclick="window.location.href='/{{courseId}}/quiz/{{quizName}}/addquestion'">Add Question</button>
+    <br>
+    <br>
+    <a class="ui teal button" href="javascript:history.go(-4)">← Back</a>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script>
+    function deleteQuestion(questionId) {
+        fetch(`/delete/${questionId}`, { method: 'DELETE' })
+                .then(() => location.reload())
+                .catch(error => {
+                    console.error('Error during deletion:', error);
+                    location.reload();
+                });
+    }
+</script>
+</body>
+</html>

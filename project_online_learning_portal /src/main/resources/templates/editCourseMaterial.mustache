@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Material</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+        }
+
+        .ui.menu .item img.logo {
+            margin-right: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+<div class="ui container">
+    <h2>Edit Title for Material</h2>
+
+    <form class="ui form" id="editForm">
+        <div class="field">
+            <label for="newTitle">New Title</label>
+            <input type="text" id="newTitle" name="newTitle" value="{{material.title}}" required>
+        </div>
+
+        <button type="submit" class="ui button primary">Update Title</button>
+        <a href="/staff/materials/{{courseId}}" class="ui button">Cancel</a>
+    </form>
+</div>
+
+<script>
+    document.getElementById('editForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const newTitle = document.getElementById('newTitle').value;
+
+        fetch(`/edit/{{courseId}}/{{title}}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: new URLSearchParams({ newTitle: newTitle })
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = `/staff/materials/{{courseId}}`;
+            } else {
+                alert('Failed to update title');
+            }
+        })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred.');
+                });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Quiz Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+</head>
+<body>
+<div class="ui container">
+    <h2>Edit Title for {{quizName}}</h2>
+
+    <form class="ui form" id="editQuizForm">
+        <div class="field">
+            <label for="newTitle">New Quiz Title</label>
+            <input type="text" id="newTitle" name="newTitle" required>
+        </div>
+
+        <button type="submit" class="ui button primary">Update Title</button>
+        <a href="/staff/{{courseId}}/quizzes" class="ui button">Cancel</a>
+    </form>
+</div>
+
+<script>
+    document.getElementById('editQuizForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const newTitle = document.getElementById('newTitle').value;
+
+        fetch(`/staff/{{courseId}}/{{quizName}}/editquiztitle`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: new URLSearchParams({ newTitle: newTitle })
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = `/staff/{{courseId}}/quizzes`;
+            } else {
+
+            }
+        })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred.');
+                });
+    });
+</script>
+</body>
+</html>

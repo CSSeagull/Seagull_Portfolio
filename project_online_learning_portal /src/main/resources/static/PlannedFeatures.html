@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planned Features</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="ui fixed inverted menu navbar">
+  <div class="ui container">
+    <div class="ui simple dropdown item">
+      Dropdown <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" href="/aboutus">About Us</a>
+        <a class="item" href="Calendar.html">Calendar</a>
+        <a class="item" href="TeamMembers.html">Team Members</a>
+        <div class="divider"></div>
+        <div class="header">More</div>
+        <div class="item">
+          <i class="dropdown icon"></i>
+          Features
+          <div class="menu">
+            <a class="item" href="PlannedFeatures.html">Planned Features</a>
+            <a class="item" href="CompletedFeatures.html">Current Features</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right menu">
+      <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px; font-size: 15px;">
+        Logout
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="box">
+    <h2 class="ui header" style="color: #2F365F; font-size: 30px; text-align: center;">
+      Key Features
+    </h2>
+
+    <div style="font-size: 18px; text-align: left; margin-left: 30px;">
+      <p><strong>User Authentication:</strong></p>
+      <p>Registration and login via Spring Boot. The user inputs their credentials, sends a request to the server, and the server checks whether the user is a student or staff member based on their credentials.</p>
+      <p>The server verifies the user's role (student or staff) upon login and grants access accordingly.</p>
+      <br>
+
+      <p><strong>Course Catalog and Enrollment:</strong></p>
+      <p>Courses categorized by subjects and modules.</p>
+      <p>Students can enroll in courses and track their progress.</p>
+      <br>
+
+      <p><strong>Quiz System:</strong></p>
+      <p>Quiz questions stored in the database and retrieved via GET requests.</p>
+      <p>Submission handled via POST requests with instant feedback.</p>
+      <br>
+
+      <p><strong>Progress Tracking:</strong></p>
+      <p>The system allows students to track their progress through a dynamic percentage bar that updates as they complete chapters, while admins can view and manage student progress across courses, accomplished by using Spring Boot for backend logic, MySQL for data storage, fetch() for real-time updates, and role-based access control for personalized views.</p>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <button onclick="goBack()" class="ui blue button" style="font-size: 16px;">
+      Back to Home
+    </button>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script>
+  $('.ui.dropdown').dropdown();
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+</body>
+</html>

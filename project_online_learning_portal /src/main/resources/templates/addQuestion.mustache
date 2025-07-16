@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Question</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+</head>
+<body>
+<div class="ui fixed inverted menu" style="height: 8%; font-size: 16px; background-color: #2F365F;">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px;">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="ui container" style="margin-top: 80px;">
+    <h2 class="ui center aligned header">Add Question to Quiz</h2>
+
+    <form action="/{{courseId}}/quiz/{{quizName}}/addquestion" method="post" class="ui form">
+        <div class="field">
+            <label for="questionBody">Question Text:</label>
+            <input type="text" id="questionBody" name="questionBody" placeholder="Enter question text" required />
+        </div>
+
+        <div class="field">
+            <label for="answer1">Answer 1:</label>
+            <input type="text" id="answer1" name="answer1" placeholder="Enter answer 1" required />
+        </div>
+
+        <div class="field">
+            <label for="answer2">Answer 2:</label>
+            <input type="text" id="answer2" name="answer2" placeholder="Enter answer 2" required />
+        </div>
+
+        <div class="field">
+            <label for="answer3">Answer 3:</label>
+            <input type="text" id="answer3" name="answer3" placeholder="Enter answer 3" required />
+        </div>
+
+        <div class="field">
+            <label for="answer4">Answer 4:</label>
+            <input type="text" id="answer4" name="answer4" placeholder="Enter answer 4" required />
+        </div>
+
+        <div class="field">
+            <label for="correctAnswer">Select Correct Answer:</label>
+            <select id="correctAnswer" name="correctAnswer" class="ui dropdown" required>
+                <option value="correctAnswer" disabled selected>Select correct answer</option>
+                <option value="answer1">Answer 1</option>
+                <option value="answer2">Answer 2</option>
+                <option value="answer3">Answer 3</option>
+                <option value="answer4">Answer 4</option>
+            </select>
+        </div>
+
+        <button type="submit" class="ui blue button">Add Question</button>
+    </form>
+
+    <form action="/staff/{{courseId}}/{{quizName}}" method="get" style="margin-top: 20px;">
+        <button type="submit" class="ui green button">Submit Quiz</button>
+    </form>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+</html>

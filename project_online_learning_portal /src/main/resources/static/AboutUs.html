@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="ui fixed inverted menu navbar">
+    <div class="ui container">
+        <div class="ui simple dropdown item">
+            Dropdown <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="/aboutus">About Us</a>
+                <a class="item" href="Calendar.html">Calendar</a>
+                <a class="item" href="TeamMembers.html">Team Members</a>
+                <div class="divider"></div>
+                <div class="header">More</div>
+                <div class="item">
+                    <i class="dropdown icon"></i>
+                    Features
+                    <div class="menu">
+                        <a class="item" href="PlannedFeatures.html">Planned Features</a>
+                        <a class="item" href="CompletedFeatures.html">Completed Features</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right menu">
+            <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px; font-size: 15px;">
+                Logout
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="box">
+        <h2 class="ui header" style="color: #2F365F; font-size: 30px; text-align: center;">
+            Project Scope
+        </h2>
+
+        <p style="font-size: 18px; text-align: center;">
+            <strong>Project Scope:</strong> The objective of this project is to develop an online learning portal where students can read notes from various classes and solve quizzes. At the same time, staff members can monitor student progress. The system will implement role-based authentication, allowing students to access learning materials and quizzes, and staff to oversee student activities. The platform will support essential features such as user registration, authentication, course management and progress tracking.
+        </p>
+    </div>
+
+    <div class="box" style="text-align: center">
+        <h3>Technical Requirements</h3>
+        <ul>
+            <li><strong>Backend:</strong> Spring Boot (Java) for rapid development, dependency management, and API creation.</li>
+            <br>
+            <li><strong>Database:</strong> MySQL for relational data storage (including notes, quizzes and registration data).</li>
+            <br>
+            <li><strong>Frontend:</strong> HTML5, CSS3, SemanticUI for responsive design, and jQuery for interactive UI components.</li>
+            <br>
+            <li><strong>Testing:</strong> JUnit and Spring Test for backend validation.</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="goBack()" class="ui blue button" style="font-size: 16px;">
+            Back to Home
+        </button>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script>
+    $('.ui.dropdown').dropdown();
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</body>
+</html>

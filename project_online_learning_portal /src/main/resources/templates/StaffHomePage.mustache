@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .ui.menu .item img.logo {
+            margin-right: 1.5em;
+        }
+
+        .ui.footer.segment {
+            margin: 5em 0em 0em;
+            padding: 5em 0em;
+        }
+
+        .custom-grid {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .dashboard-card {
+            width: 800px;
+            padding: 2em;
+            text-align: center;
+            margin-top: -200px;
+        }
+
+        .course-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            margin-top: 100px;
+        }
+
+
+        .ui.cards > .card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+<div class="ui fixed inverted menu" style="height: 8%; font-size: 16px; background-color: #2F365F">
+    <div class="ui container">
+        <a href="/staff/{{staff.name}}" class="header item">
+            {{staff.name}}'s Dashboard
+        </a>
+        <div class="ui simple dropdown item">
+            Dropdown <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="/aboutus">About Us</a>
+                <a class="item" href="/calendar">Calendar</a>
+                <a class="item" href="/team">Team Members</a>
+                <div class="divider"></div>
+                <div class="header">Header Item</div>
+                <div class="item">
+                    <i class="dropdown icon"></i>
+                    Features
+                    <div class="menu">
+                        <a class="item" href="/plan">Planned Features</a>
+                        <a class="item" href="/com">Current Features</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right menu">
+            <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px; font-size: 15px">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="ui raised very padded text container segment" style="max-width: 1200px;">
+        <h2 class="ui header" style="color: #2F365F; font-size: 30px; text-align: center;">
+            Welcome, {{staff.name}}!
+        </h2>
+
+        <div style="font-size: 18px; text-align: center; margin-top: 20px;">
+            <p>
+                <i class="envelope icon" style="margin-right: 5px;"></i>
+                <strong>Email:</strong> {{staff.email}}
+            </p>
+        </div>
+
+
+        <div class="ui three stackable centered cards" style="margin-top: 30px;">
+            {{#courses}}
+                <div class="card" style="width: 350px;">
+                    <div class="content" style="text-align: center;">
+                        <div class="header" style="font-size: 22px;">{{name}}</div>
+                        <div class="meta" style="margin-top: 5px;">Course Code: {{courseId}}</div>
+                        <div class="description" style="margin-top: 10px;">
+                            <p><strong>Course Name:</strong> {{name}}</p>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui buttons" style="width: 100%;">
+                            <a class="ui teal button" style="margin-right: 8px; flex: 1;" href="/staff/materials/{{courseId}}">
+                                View Materials
+                            </a>
+                            <a class="ui blue button" style="margin-right: 8px; flex: 1;" href="/upload/{{courseId}}">
+                                Upload
+                            </a>
+                            <a class="ui red button" style="flex: 1;" href="/staff/{{courseId}}/quizzes">
+                                Quizzes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{/courses}}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

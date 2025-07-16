@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+</head>
+<body>
+<div class="ui fixed inverted menu" style="height: 8%; font-size: 16px; background-color: #2F365F;">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px;">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="ui container" style="margin-top: 80px;">
+    <h2 class="ui center aligned header">Add New Quiz</h2>
+
+    <form action="/staff/{{courseId}}/quizz/new" method="post" class="ui form">
+        <div class="field">
+            <label for="quizName">Quiz Name:</label>
+            <input type="text" id="quizName" name="quizName" placeholder="Enter quiz name" required />
+        </div>
+
+        <button type="submit" class="ui blue button">Save Quiz</button>
+    </form>
+
+    <button onclick="goBack()" class="ui green button" style="margin-top: 20px;">Back</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script>
+    function goBack() {
+        const courseId = "{{courseId}}";
+        window.location.href = `/staff/${courseId}/quizzes`;
+    }
+</script>
+</body>
+</html>

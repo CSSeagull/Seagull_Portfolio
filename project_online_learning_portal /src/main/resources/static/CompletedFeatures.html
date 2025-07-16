@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Completed Features</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .features-container {
+      border: 2px solid #2F365F;
+      padding: 30px;
+      margin-top: 30px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    .features-container h2 {
+      color: #2F365F;
+      text-align: center;
+    }
+
+    .features-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .features-list li {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .features-list li strong {
+      color: #2F365F;
+    }
+
+    .ui.button {
+      margin-top: 20px;
+      display: block;
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ui.fixed.inverted.menu {
+      background-color: #2F365F;
+      border-radius: 0;
+    }
+
+    .quiz-logic {
+      padding-top: 50px;  /* Add padding to push it down */
+    }
+  </style>
+</head>
+
+<body>
+<div class="ui fixed inverted menu navbar">
+  <div class="ui container">
+    <div class="ui simple dropdown item">
+      Dropdown <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" href="/aboutus">About Us</a>
+        <a class="item" href="Calendar.html">Calendar</a>
+        <a class="item" href="TeamMembers.html">Team Members</a>
+        <div class="divider"></div>
+        <div class="header">More</div>
+        <div class="item">
+          <i class="dropdown icon"></i>
+          Features
+          <div class="menu">
+            <a class="item" href="PlannedFeatures.html">Planned Features</a>
+            <a class="item" href="CompletedFeatures.html">Current Features</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right menu">
+      <a href="/login" class="ui red button" style="margin-top: 8px; margin-bottom: 8px; font-size: 15px;">
+        Logout
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="features-container">
+    <h2>Key Website Features</h2>
+    <ul class="features-list">
+      <li class="quiz-logic"><strong>Quiz Logic:</strong> One of the key features of our website is quiz logic: Teachers can create quizzes and dynamically add any number of questions with the correct answer option. The initially created quiz will be hidden from students. Therefore, the teacher will have the opportunity to open it or hide it again in their panel. As soon as the professor reveals the quiz, it will appear in the student's dashboard, where the student can go to the quiz and solve it. If the student clicks the "Submit quiz" button, their result will be saved in the database and the quiz will no longer be available for the student to take again.</li>
+
+      <li><strong>Material Upload Logic:</strong> Another key feature that was implemented is material upload logic: Teachers can upload files to the course that are visible to students. This is done to make the learning process easier for students, as all the materials they need are concentrated in one place.</li>
+
+      <li><strong>User Authentication and Authorization:</strong> User authentication and authorization: added login and registration pages, therefore students can only view courses they are enrolled in.</li>
+
+      <li><strong>Course Catalogue and Enrollment:</strong> Course catalogue and enrollment: Students can choose any course to enroll in from the catalogue.</li>
+
+      <li><strong>Progress Tracking:</strong> Progress tracking: student can see his/her progress towards the course by comparing his/her grades in different quizzes.</li>
+    </ul>
+
+    <button onclick="goBack()" class="ui blue button">Back to Home</button>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script>
+  $('.ui.dropdown').dropdown();
+  function goBack() {
+    window.history.back();
+  }
+</script>
+</body>
+</html>
