@@ -1,0 +1,335 @@
+/* Reset and General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in element width/height */
+}
+
+
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #fefae0;
+    color: #5f6f52;
+    line-height: 1.6;
+    overflow-x: hidden;/* Prevents horizontal scroll */
+    width: 100%;
+}
+
+
+header {
+    background-color: #5f6f52;
+    color: #fefae0;
+    padding: 10px 20px;
+    display: flex;/* Uses flexbox for layout */
+    justify-content: space-between;
+    align-items: center;
+    position: relative;/* Necessary for positioning side-nav */
+    width: 100%; /* Ensures full width */
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hamburger Menu */
+.burger-menu {
+    display: flex;/* Uses flexbox for the burger icon */
+    flex-direction: column;
+    cursor: pointer;/* Changes cursor to pointer on hover */
+    gap: 5px;
+    font-size: 32px;
+    z-index: 2;/* Ensures it's on top of other elements */
+    position: relative;
+}
+
+.burger-menu span {
+    width: 30px;
+    height: 3px;
+    background-color: #fefae0;
+}
+
+/* Side Navigation */
+.side-nav {
+    position: absolute;/* Positioned relative to header */
+    top: 65px;
+    right: -250px; /* Initially hidden */
+    height: 100vh; /* Covers the full height of the viewport */
+    width: 250px;
+    background-color: #a9b388;
+    color: #fefae0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+    z-index: 1;/* Positioned under burger menu */
+}
+
+.side-nav a {
+    text-decoration: none;
+    color: #fefae0;
+    font-size: 1.2rem;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);/* Adds border under each link */
+}
+
+.side-nav a:hover {
+    background-color: #b99470;/* Changes background on hover */
+    border-radius: 15px;
+}
+
+/* Updated Toggle for Side Navigation */
+header:focus-within .side-nav {
+    transform: translateX(-250px); /* Brings the menu into view */
+}
+
+/* Main Banner */
+.hero {
+    background-image: url('../media/hero.jpg');/* Background image */
+    background-size: cover; /* Makes sure the image covers the entire section */
+    background-position: center;
+    color: #fefae0;
+    text-align: center;
+    padding: 80px 20px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;/* Stacks content vertically */
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Ensures full width */
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Welcome Section */
+.welcome {
+    background-color: #a9b388;
+    color: #fefae0;
+    padding: 50px 20px;
+    text-align: center;
+    border-bottom: 5px solid #b99470;
+    width: 100%; /* Ensures full width */
+}
+
+.welcome h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.welcome ul {
+    list-style: none;
+    padding: 0;
+}
+
+.welcome li {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Main Content */
+main {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fefae0;
+    width: 100%; /* Ensures full width */
+}
+
+.main-content h2 {
+    font-size: 2rem;
+    color: #b99470;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.main-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta { /*Call to action button*/
+    display: inline-block;/* Makes the button an inline block */
+    text-decoration: none;
+    color: #fefae0;
+    background-color: #b99470;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;/* Smooth transition on hover */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta:hover {
+    background-color: #5f6f52;/* Changes background on hover */
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #b99470;
+    color: #fefae0;
+    padding: 50px 20px;
+    text-align: center;
+    width: 100%; /* Ensures full width */
+}
+
+.testimonials h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.testimonial {
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Footer Section */
+footer {
+    background-color: #5f6f52;
+    color: #fefae0;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    width: 100%; /* Ensures full width */
+}
+
+@media (max-width: 1024px) {
+    .logo {
+        font-size: 1.6rem; /* Reduce font size of logo */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Adjust hero title size */
+    }
+
+    .hero p {
+        font-size: 1.2rem; /* Adjust hero paragraph size */
+    }
+
+    .welcome h2 {
+        font-size: 1.8rem; /* Adjust heading size in welcome section */
+    }
+
+    .side-nav {
+        width: 200px; /* Reduce the side-nav width */
+        padding: 15px; /* Reduce padding */
+    }
+
+    .main-content h2 {
+        font-size: 1.8rem; /* Adjust main content heading size */
+    }
+
+    .cta {
+        padding: 12px 25px; /* Reduce padding in the CTA button */
+        font-size: 1.1rem; /* Adjust font size in the CTA button */
+    }
+
+    .testimonials h2 {
+        font-size: 1.8rem; /* Adjust testimonials heading size */
+    }
+}
+
+/* For Smartphones (max-width: 768px) */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.4rem; /* Further reduce font size of logo */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Smaller hero title */
+    }
+
+    .hero p {
+        font-size: 1.1rem; /* Smaller hero paragraph text */
+    }
+
+    .side-nav {
+        width: 180px; /* Adjust width of the side navigation */
+    }
+
+    .main-content h2 {
+        font-size: 1.6rem; /* Smaller font size for content headings */
+    }
+
+    .cta {
+        padding: 10px 20px; /* Smaller padding for CTA button */
+        font-size: 1rem; /* Smaller font size in CTA */
+    }
+
+    .testimonials h2 {
+        font-size: 1.6rem; /* Smaller testimonials heading */
+    }
+
+    .testimonial {
+        font-size: 1rem; /* Smaller testimonial text */
+    }
+
+    .footer {
+        font-size: 0.8rem; /* Adjust footer text size */
+    }
+}
+
+/* For Small Smartphones (max-width: 480px) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem; /* Even smaller logo font size */
+    }
+
+    .hero h1 {
+        font-size: 1.8rem; /* Even smaller hero title */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Adjust hero paragraph size */
+    }
+
+    .side-nav {
+        width: 100%; /* Make side-nav take full width on small screens */
+    }
+
+    .main-content h2 {
+        font-size: 1.4rem; /* Smaller content heading */
+    }
+
+    .cta {
+        padding: 8px 15px; /* Further reduce padding for small screens */
+        font-size: 0.9rem; /* Smaller font size in CTA button */
+    }
+
+    .testimonials h2 {
+        font-size: 1.4rem; /* Smaller testimonials heading */
+    }
+
+    .testimonial {
+        font-size: 0.9rem; /* Smaller testimonial text */
+    }
+
+    .footer {
+        font-size: 0.7rem; /* Adjust footer text size for very small screens */
+    }
+}

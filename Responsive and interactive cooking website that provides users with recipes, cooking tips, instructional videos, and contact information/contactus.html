@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Cook & Delight</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf3e0;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #5f6f52;
+            color: white;
+            padding: 16px;
+            position: relative;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-container {
+            position: relative;
+        }
+
+        #menu-toggle {
+            display: none; /* Hide the checkbox */
+        }
+
+        .hamburger-icon {
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        /* Menu Styling */
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -220px; /* Initially hidden */
+            width: 200px;
+            height: 100vh;
+            background: #5f6f52;
+            color: white;
+            transform: translateX(0);
+            transition: transform 0.5s ease-in-out;/* Smooth sliding effect */
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* Show the menu when checkbox is checked */
+        #menu-toggle:checked ~ .menu {
+            right: 0; /* Slide the menu into view */
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            margin: 16px 0;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .menu ul li:hover {
+            background-color: #b99470;
+            border-radius: 15px;
+        }
+
+        /* Hero Section */
+        .contact-hero {
+            background-color: #a9b388;
+            color: #fefae0;
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 5px solid #b99470;
+        }
+
+        .contact-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+        }
+
+        /* Contact Information Section */
+        .contact-info {
+            background-color: #fefae0;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .info-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #a9b388;
+            border-radius: 8px;
+            padding: 20px 30px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #5f6f52;
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .map {
+            margin-top: 20px;
+            max-width: 100%;
+            border: 1px solid #b99470;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #5f6f52;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        /* For Desktop (min-width: 1024px) */
+@media (min-width: 1024px) {
+    .header {
+        justify-content: space-between; /* Default spacing */
+    }
+
+    .contact-hero h1 {
+        font-size: 2.5rem; /* Larger hero title for desktops */
+    }
+
+    .info-container {
+        padding: 30px 40px; /* More spacious padding */
+    }
+
+    footer {
+        font-size: 1rem; /* Larger footer text */
+    }
+}
+
+/* For Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack header elements */
+        align-items: flex-start;
+    }
+
+    .contact-hero h1 {
+        font-size: 2rem; /* Slightly smaller hero title */
+    }
+
+    .contact-info {
+        padding: 30px 10px; /* Reduced padding */
+    }
+
+    .info-container {
+        padding: 15px 20px; /* Compact padding for tablets */
+    }
+}
+
+/* For Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .contact-hero {
+        padding: 40px 10px; /* Minimal padding */
+    }
+
+    .contact-hero h1 {
+        font-size: 1.5rem; /* Smaller title size for mobile */
+    }
+
+    .contact-info {
+        padding: 20px 10px; /* Reduced section padding */
+    }
+
+    .info-container {
+        padding: 10px 15px;
+        font-size: 0.9rem; /* Smaller text size */
+    }
+
+    footer {
+        font-size: 0.8rem; /* Smaller footer font size */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">Cook & Delight</div>
+        <div class="hamburger-container">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger-icon">☰</label>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="recipes.html">Recipes</a></li>
+                    <li><a href="tips.html">Tips & Tricks</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                    <li><a href="references.html">References</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <h1>Get in Touch</h1>
+        <p>Reach out to us for any inquiries or feedback. We'd love to hear from you!</p>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info">
+        <div class="info-container">
+            <div class="info-item">
+                <strong>Our Team:</strong>
+                Vladislav Chaika, Daniyal Zharov
+            </div>
+            <div class="info-item">
+                <strong>Phone Number:</strong>
+                +971-55-615-6448
+            </div>
+            <div class="info-item">
+                <strong>Email Address:</strong>
+                info@cookanddelight.com
+            </div>
+            <div class="map">
+                <img src="assets/media/map.jpg" alt="Map Location" class="map">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div>© 2024 Cook & Delight. All Rights Reserved.</div>
+    </footer>
+</body>
+</html>

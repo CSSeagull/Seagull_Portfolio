@@ -1,0 +1,231 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width/height */
+}
+
+html {
+    font-size: 16px; /* Base font size for rem calculations */
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #fefae0;
+    color: #5f6f52;
+    line-height: 1.6;
+}
+
+/* Header Section */
+header {
+    background-color: #5f6f52;
+    color: #fefae0;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    display: flex;/* Use flexbox to align header items */
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.8rem; /* 28.8px */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem; /* 1px */
+}
+
+/* Hamburger Menu */
+.hamburger-container {
+    position: relative;
+}
+
+.hamburger-icon {
+    margin-right: 1.25rem; /* 20px */
+    font-size: 2rem; /* 32px */
+    cursor: pointer;
+    color: #fff;
+    background: none;
+    border: none;
+    z-index: 2; /* Ensure the hamburger icon is on top of other elements */
+    position: relative;
+}
+
+.hamburger-container:focus-within .menu {
+    transform: translateX(-12rem); /* Slide the menu in when the container is focused (220px equivalent) */
+}
+
+.menu {
+    position: absolute;/* Position the menu absolutely within the container */
+    top: 3.425rem; /* 65px */
+    right: -13.75rem; /* -220px */
+    height: 100vh;
+    width: 12.5rem; /* 200px */
+    background: #5f6f52;
+    color: #fff;
+    transition: transform 0.5s ease-in-out; /* Smooth sliding effect for menu */
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem; /* 20px */
+    z-index: 1;/* Ensure it's below the hamburger icon */
+}
+
+.menu ul {
+    list-style: none;/* Remove default list style */
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 1rem 0; /* 16px */
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.125rem; /* 18px */
+}
+
+.menu ul li:hover {
+    background-color: #b99470;
+    border-radius: 0.9375rem; /* 15px */
+}
+
+/* Tips Header Section */
+.tips-header {
+    text-align: center; /* Center align text */
+    background-color: #a9b388;
+    color: #fefae0;
+    padding: 3.125rem 1.25rem; /* 50px 20px */
+    border-bottom: 0.3125rem solid #b99470; /* 5px */
+}
+
+.tips-header h1 {
+    font-size: 2.5rem; /* 40px */
+    margin-bottom: 0.625rem; /* 10px */
+}
+
+.tips-header p {
+    font-size: 1.2rem; /* 19.2px */
+}
+
+/* Tips Grid Section */
+.tips-grid {
+    display: grid; /* Use grid for layout */
+    grid-template-columns: 1fr 1fr;/* Two columns by default */
+    gap: 1.25rem; /* 20px */
+    padding: 1.25rem; /* 20px */
+    margin: 1.25rem; /* 20px */
+    background-color: #fefae0;
+}
+
+.tip {
+    background-color: #fefae0;
+    border: 0.125rem solid #b99470; /* 2px */
+    border-radius: 0.625rem; /* 10px */
+    padding: 1.25rem; /* 20px */
+    text-align: center;
+    box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.1); /* 0 5px 10px */
+}
+
+.tip h2 {
+    font-size: 1.5rem; /* 24px */
+    margin-bottom: 0.9375rem; /* 15px */
+    color: #b99470;
+}
+
+.tip video {
+    width: 100%;
+    border-radius: 0.3125rem; /* 5px */
+    margin-bottom: 0.9375rem; /* 15px */
+}
+
+.tip p {
+    font-size: 1rem; /* 16px */
+    color: #5f6f52;
+}
+
+/* Footer Section */
+footer {
+    background-color: #5f6f52;
+    color: #fefae0;
+    text-align: center;
+    padding: 0.9375rem 0; /* 15px */
+    font-size: 0.9rem; /* 14.4px */
+    letter-spacing: 0.0625rem; /* 1px */
+}
+
+
+/* Media Queries */
+
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .tips-header {
+        padding: 2.5rem 1rem; /* Reduce padding */
+    }
+
+    .tips-header h1 {
+        font-size: 2rem; /* Adjust font size */
+    }
+
+    .tips-header p {
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 1rem; /* Reduce gap */
+        padding: 1rem; /* Reduce padding */
+        margin: 1rem; /* Reduce margin */
+    }
+
+    .tip {
+        padding: 1rem; /* Reduce padding */
+    }
+
+    .tip h2 {
+        font-size: 1.25rem; /* Adjust font size */
+        margin-bottom: 0.75rem; /* Reduce margin */
+    }
+
+    .tip p {
+        font-size: 0.9rem; /* Adjust font size */
+    }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .tips-header {
+        padding: 2rem 0.75rem; /* Further reduce padding */
+    }
+
+    .tips-header h1 {
+        font-size: 1.75rem; /* Smaller font size */
+    }
+
+    .tips-header p {
+        font-size: 0.875rem; /* Smaller font size */
+    }
+
+    .tips-grid {
+        gap: 0.75rem; /* Further reduce gap */
+        padding: 0.75rem; /* Smaller padding */
+        margin: 0.75rem; /* Smaller margin */
+    }
+
+    .tip {
+        padding: 0.75rem; /* Further reduce padding */
+    }
+
+    .tip h2 {
+        font-size: 1rem; /* Smaller font size */
+        margin-bottom: 0.5rem; /* Reduce margin */
+    }
+
+    .tip p {
+        font-size: 0.8rem; /* Smaller font size */
+    }
+
+    footer {
+        font-size: 0.8rem; /* Adjust footer font size */
+        padding: 0.625rem 0; /* Reduce footer padding */
+    }
+}

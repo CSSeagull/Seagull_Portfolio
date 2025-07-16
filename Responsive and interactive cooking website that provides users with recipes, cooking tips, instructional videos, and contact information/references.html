@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References - Cook & Delight</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf3e0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #5f6f52;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            width: 100%; /* Ensures full width */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .burger-menu {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 2;
+        }
+
+        .burger-menu span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .side-nav {
+            position: fixed;
+            top: 55px;
+            right: -250px; /* Hidden initially */
+            height: 100vh; /* Full height of viewport */
+            width: 250px;
+            background-color: #5f6f52;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .side-nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .side-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Updated Toggle for Side Navigation */
+        header:focus-within .side-nav {
+            transform: translateX(-250px); /* Slide menu into view */
+        }
+
+        main {
+            padding: 40px 20px;
+            text-align: center;
+            width: 100%; /* Ensures full width */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #5f6f52;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: #b99470;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #5f6f52;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #5f6f52;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            width: 100%; /* Ensures full width */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Cook & Delight</div>
+        <label class="burger-menu" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav class="side-nav">
+            <a href="index.html">Home</a>
+            <a href="Recipes.html">Recipes</a>
+            <a href="tips.html">Tips & Tricks</a>
+            <a href="contactus.html">Contact</a>
+            <a href="references.html">References</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1>References</h1>
+
+        <!-- Information References -->
+        <section>
+            <h2>Information References</h2>
+            <ul>
+                <li><a href="https://www.foodandwine.com/filipino-new-orleans-bbq-shrimp-7110750" target="_blank">BBC Good Food</a> - Inspiration for recipes and cooking techniques.</li>
+                <li><a href="https://www.southernliving.com/food/dinner/one-pot-pasta " target="_blank">All Recipes</a> - Comprehensive resource for cooking ideas.</li>
+                <li><a href="https://www.gimmesomeoven.com/baked-chicken-breast/ " target="_blank">Food Recipes</a> - Tips and tricks for home chefs.</li>
+                <li><a href="https://www.lifestyleasia.com/sg/dining/recipes/easy-dinner-recipes-meal-prep/ " target="_blank">Food Recipes</a> - Images and Recipes.</li>
+                <li><a href="https://www.wdw-magazine.com/cooking-from-disney-movies-anyone-can-cook-this-ratatouille-recipe/" target="_blank">Food Recipes</a> - Tips and tricks for home chefs.</li>
+
+            </ul>
+            </ul>
+        </section>
+
+        <!-- Image References -->
+        <section>
+            <h2>Image References</h2>
+            <ul>
+                <li><a href="https://unsplash.com" target="_blank">Unsplash</a> - Hero image and ingredient photography.</li>
+                <li><a href="https://pixabay.com" target="_blank">Pixabay</a> - Recipe images.</li>
+                <li><a href="https://www.pexels.com" target="_blank">Pexels</a> - Additional images for inspiration.</li>
+            </ul>
+        </section>
+
+        <!-- Video References -->
+        <section>
+            <h2>Video References</h2>
+            <ul>
+                <li><a href="https://www.youtube.com" target="_blank">YouTube</a> - Cooking tutorials and masterclass content.</li>
+            </ul>
+        </section>
+
+        <!-- Team Contributions -->
+        <section>
+            <h2>Team Members</h2>
+            <ul>
+                <li>Vladislav Chaika</li>
+                <li>Daniyal Zharov</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div>© 2024 Cook & Delight. All Rights Reserved.</div>
+    </footer>
+</body>
+</html>
