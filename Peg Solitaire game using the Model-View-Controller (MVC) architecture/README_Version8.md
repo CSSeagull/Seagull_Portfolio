@@ -4,13 +4,13 @@ This Java application implements a graphical version of the classic **Peg Solita
 
 ---
 
-## 🧩 Game Overview
+## Game Overview
 
 **Peg Solitaire** is a board game for one player involving movement of pegs on a board with holes. A valid move is to jump a peg over an adjacent peg into an empty hole, removing the jumped peg. The goal is to eliminate all but one peg.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 peggame 4/
@@ -28,7 +28,7 @@ peggame 4/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -52,7 +52,7 @@ peggame 4/
 
 ---
 
-## 📦 Components
+## Components
 
 ### Model
 - **PegGame.java**: Core logic for moves and game state.
@@ -71,7 +71,7 @@ peggame 4/
 
 ---
 
-## 📃 Configuration
+## Configuration
 
 The game reads the initial board state from:
 
@@ -83,14 +83,14 @@ You can customize this file to change the layout of the game board.
 
 ---
 
-## ❗ Known Issues
+## Known Issues
 
 - Only supports square board format.
 - No support for undo/redo functionality.
 
 ---
 
-## 🛠️ Future Improvements
+## Future Improvements
 
 - Add sound effects and animations
 - Implement save/load feature with file I/O
